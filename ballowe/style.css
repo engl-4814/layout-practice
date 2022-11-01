@@ -70,7 +70,7 @@ p { font-weight: 300; }
 /* TEN AREA */ 
 .ten-area {
   display: grid;
-  grid-template-columns: 100px repeat(4, 1fr); /* first tell it how many times to repeat something then tell the value to repeat (separated by comma); adding a value before the repeat (like 100px repeat(4, 1fr) makes the first column always remain at that value (can do this for multiple rows like '50px 100px repeat (2, 1fr)*/ /* you can do the same thing with grid-template-rows */
+  grid-template-columns: 100px repeat(4, 1fr); /* first tell it how many times to repeat something then tell the value to repeat (separated by comma); adding a value before the repeat (like 100px repeat(4, 1fr) makes the first column always remain at that value (can do this for multiple rows like '50px 100px repeat (2, 1fr)*/ /* you can do the same thing with grid-template-rows */ /*can use 'max content' and then the content will dictate the maximum width (this is a fixed size but adapts as the content changes, like if you change the heading or whatever the content is), same concept with 'min-content' --> smallest it can be based on available content */
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr; /* works same way a grid-template-columns, */
   gap: 1em; /*gap is like margin as well - pushes between elements, using em will keep the gaps flexible*/
 }
