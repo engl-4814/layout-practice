@@ -1,0 +1,12 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 200px 200px;
+    grid-template-rows: 50px 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 1rem;
+    grid-template-areas: 
+        "header header header"
+        "column-nav image-1 image-2"
+        "column-nav content-1 content-2"
+        "column-nav image-3 image-4 image-5"
+        "column-nav content-3 content-4 content-5";
+}
