@@ -78,7 +78,79 @@ p { font-weight: 300; }
 /* using just grid-template-columns makes implicit grid, where the computer makes the amount of rows; using grid-template-rows with g-t-c makes explicit rows, where you determine the amount of rows */ 
 
 .ten-area > div {
-  height: 100px;
+  border: 1px solid var(--color-avacado-black);
+}
+
+/* GRID LINES AND CELLS */
+
+.container {
+  display: grid;
+  grid-template-columns: 200px repeat(4, 1fr) 200px; /* makes 6 columns*/
+  grid-template-rows: 25vw repeat(9, 1fr) 10vw; /* makes 11 rows */
+  grid-gap: 1rem;
+}
+
+.container > div {
+  border: 1px solid var(--color-avacado-black);
+}
+
+/* SPECIFIC */
+
+.header {
+  grid-column: 1/-1; /* start line then end line */
+  grid-row: 1/2; /* start line then end line */
+}
+.nav-left {
+  grid-column: 1/2;
+  grid-row: 2/-2;
+}
+.content1 {
+  grid-column: 2/-2;
+  grid-row: 2/7;
+}
+.content2 {
+  grid-column: 2/-2;
+  grid-row: 7/9;
+}
+.content3 {
+  grid-column: 2/-2;
+  grid-row: 9/11;
+}
+.sidebar-right {
+  grid-column: -2/-1;
+  grid-row: 2/11;
+}
+.footer{
+  grid-column: 1/-1;
+  grid-row: 11/-1;
+}
+
+/* DEFINE GRID AREA KEYWORDS (would normally be at top)*/
+
+.head         { grid-area: head; }
+.nav_l       { grid-area: nav-left; }
+.sidebar-r  { grid-area: sidebar-r; }
+.content-one      { grid-area: contentone; }
+.content-two      { grid-area: contenttwo; }
+.content-three      { grid-area: contentthree; }
+.foot         { grid-area: foot; }
+
+/* then, can use these terms to make grid areas with grid-template-areas, like below */
+ 
+.contain{
+  display: grid;
+  grid-template-columns: 200px 1fr 200px;
+  grid-template-rows: 50vh 1fr 1fr 1fr 1fr 100px;
+  grid-gap: 1rem;
+  grid-template-areas:
+    "head head head"
+    "nav-l contentone sidebar-r"
+    "nav-l contenttwo sidebar-r"
+    "nav-l contentthree sidebar-r"
+    "foot foot foot";
+ }
+
+ .contain > div {
   border: 1px solid var(--color-avacado-black);
 }
 
