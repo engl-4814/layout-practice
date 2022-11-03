@@ -54,10 +54,25 @@ p { font-weight: 300; }
 
 
 /* HEADER */
+.top-banner {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
 .top-banner img {
   width: 20em;
 }
 
+/* TEN AREA */
+.ten-area {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1em;
+}
+
+.ten-area > div {
+  height: 100px;
+  border: 1px solid var(--color-avacado-black)
+}
 
 /* EFFECTS */
 
