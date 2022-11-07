@@ -1,11 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Griffy&display=swap');
 
+/* FONT IMPORTS */
+/* SERIF 
+Playfair
+DM Serif
+Cinzel
+*/
 
-/* GENERAL */
+/* SANS SERIF 
+Roboto
+Wuicksand
+Teko
+*/
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=DM+Serif+Display&family=Playfair+Display:wght@500&family=Quicksand:wght@500&family=Roboto+Condensed:wght@300&family=Teko:wght@300&display=swap');
 
 /* Setup */
 :root {
-  --color-orange-crush: #ecc352;
+  --color-orange-crush: #ddcea3;
   --color-avacado-black: #363a18;
 }
 
@@ -13,14 +23,14 @@ body {
   background: var(--color-orange-crush);}
 
 p { 
-   /* font-family: ; */
+    font-family: 'Roboto Condensed'; 
     color: #363a18; 
     padding: .5vh; 
     margin: .5vh; 
 }
 
 h1 {
-    /*font-family: ; */
+    font-family: 'Playfair';
     color: #363a18; 
     padding: .5vh; 
     margin: .5vh; 
@@ -28,23 +38,21 @@ h1 {
 
 /***** CONTRAST *****/
 
-/*FONT
-.contrast {font-family: ;}
-.header2 { font-family: ;}
-.para { font-family ;} */
+.contrast {font-family: 'Playfair';}
+.header2 { font-family: 'Cinzel';}
+.para { font-family: 'Quicksand';} 
 
 /*COLOR*/
 .color1{ color: rgb(46, 12, 184); }
 .color2{ color:rgb(12, 184, 26); }
-.blend{ color: #e2c268;}
+.blend{ color: #dec47e;}
 .stand { color:black;}
 
-/***** REPETITION *****/
-/* FONT 
-.font1 {font-family: ;}
-.font2 { font-family: ;}
-.font3 { font-family ;} 
-.explainfont { font-family ;}*/
+/***** REPETITION *****/ 
+.font1 {font-family: 'Quicksand';}
+.font2 { font-family: 'Roboto Condensed';}
+.font3 { font-family: 'Teko';} 
+.explainfont { font-family: 'Roboto Condensed' ;}
 
 /***** ALIGNMENT *****/
 
@@ -83,7 +91,7 @@ h1 {
   grid-row: 4/5;
 }
 .content4 {
-  grid-column: 1/-1;
+  grid-column: 2/3;
   grid-row: 2/4;
 }
 .sidebar-right{
@@ -117,14 +125,14 @@ h1 {
 
 .proximity {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* first tell it how many times to repeat something then tell the value to repeat (separated by comma); adding a value before the repeat (like 100px repeat(4, 1fr) makes the first column always remain at that value (can do this for multiple rows like '50px 100px repeat (2, 1fr)*/ /* you can do the same thing with grid-template-rows */ /*can use 'max content' and then the content will dictate the maximum width (this is a fixed size but adapts as the content changes, like if you change the heading or whatever the content is), same concept with 'min-content' --> smallest it can be based on available content */
-  grid-template-rows: 1fr 1fr 1fr; /* works same way a grid-template-columns, */
-  gap: 1em; /*gap is like margin as well - pushes between elements, using em will keep the gaps flexible*/
+  grid-template-columns: repeat(3, 1fr); 
+  grid-template-rows: 1fr 1fr 1fr; 
+  gap: 1em; 
 }
 
 .apple {
-  grid-column: 1/2; /* start line then end line */
-  grid-row: 1/2; /* start line then end line */
+  grid-column: 1/2; 
+  grid-row: 1/2; 
 }
 
 .banana {
@@ -213,112 +221,9 @@ h1 {
   border: 1px solid var(--color-avacado-black);
 }
 
-
-/* using just grid-template-columns makes implicit grid, where the computer makes the amount of rows; using grid-template-rows with g-t-c makes explicit rows, where you determine the amount of rows */ 
-
 .proximity > div {
   border: 1px solid var(--color-avacado-black);
 }
-
-
-/* TYPOGRAPHY */
-
-/* Families */
-* { font-family: 'Crimson Text', serif; }
-h1 { font-family: 'Griffy', cursive; }
-
-
-/* ALIGNMENT RULES */
-.align-self-center {align-self: center}
-
-/* TEN AREA */ 
-.ten-area {
-  display: grid;
-  grid-template-columns: 100px repeat(4, 1fr); /* first tell it how many times to repeat something then tell the value to repeat (separated by comma); adding a value before the repeat (like 100px repeat(4, 1fr) makes the first column always remain at that value (can do this for multiple rows like '50px 100px repeat (2, 1fr)*/ /* you can do the same thing with grid-template-rows */ /*can use 'max content' and then the content will dictate the maximum width (this is a fixed size but adapts as the content changes, like if you change the heading or whatever the content is), same concept with 'min-content' --> smallest it can be based on available content */
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr; /* works same way a grid-template-columns, */
-  gap: 1em; /*gap is like margin as well - pushes between elements, using em will keep the gaps flexible*/
-}
-
-/* using just grid-template-columns makes implicit grid, where the computer makes the amount of rows; using grid-template-rows with g-t-c makes explicit rows, where you determine the amount of rows */ 
-
-.ten-area > div {
-  border: 1px solid var(--color-avacado-black);
-}
-
-/* GRID LINES AND CELLS */
-
-.contai--ner {
-  display: grid;
-  grid-template-columns: 200px repeat(4, 1fr) 200px; /* makes 6 columns*/
-  grid-template-rows: 25vw repeat(9, 1fr) 10vw; /* makes 11 rows */
-  grid-gap: 1rem;
-}
-
-.conta--iner > div {
-  border: 1px solid var(--color-avacado-black);
-}
-
-/* SPECIFIC */
-
-.header {
-  grid-column: 1/-1; /* start line then end line */
-  grid-row: 1/2; /* start line then end line */
-}
-.nav-left {
-  grid-column: 1/2;
-  grid-row: 2/-2;
-}
-.content1 {
-  grid-column: 2/-2;
-  grid-row: 2/7;
-}
-.content2 {
-  grid-column: 2/-2;
-  grid-row: 7/9;
-}
-.content3 {
-  grid-column: 2/-2;
-  grid-row: 9/11;
-}
-.sidebar-right {
-  grid-column: -2/-1;
-  grid-row: 2/11;
-}
-.footer{
-  grid-column: 1/-1;
-  grid-row: 11/-1;
-}
-
-/* DEFINE GRID AREA KEYWORDS (would normally be at top)*/
-
-.head         { grid-area: head; }
-.nav_l       { grid-area: nav-left; }
-.sidebar-r  { grid-area: sidebar-r; }
-.content-one      { grid-area: contentone; }
-.content-two      { grid-area: contenttwo; }
-.content-three      { grid-area: contentthree; }
-.foot         { grid-area: foot; }
-
-/* then, can use these terms to make grid areas with grid-template-areas, like below */
- 
-.co-ntain{
-  display: grid;
-  grid-template-columns: 200px 1fr 200px;
-  grid-template-rows: 50vh 1fr 1fr 1fr 1fr 100px;
-  grid-gap: 1rem;
-  grid-template-areas:
-    "head head head"
-    "nav-l contentone sidebar-r"
-    "nav-l contenttwo sidebar-r"
-    "nav-l contentthree sidebar-r"
-    "foot foot foot";
- }
-
- .con-tain > div {
-  border: 1px solid var(--color-avacado-black);
-}
-
-/* EFFECTS */
 
 /* <hr> - horizontal rule effects */
 .scoring {
