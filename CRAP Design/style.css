@@ -48,17 +48,9 @@ h1 {
 
 /***** ALIGNMENT *****/
 
-/*terms*/
-/*container*/
-.header          { grid-area: header }
-.content1        { grid-area: content1; }
-.content2        { grid-area: content2; }
-.content3        { grid-area: content3; }
-.sidebar-right   { grid-area: sidebar-right;}
-.content4        {grid-area: content4;}
 
 /*containz*/
-.head            { grid-area: head }
+.head            { grid-area: head; }
 .contentone      { grid-area: contentone; }
 .contenttwo      { grid-area: contenttwo; }
 .contentthree    { grid-area: contentthree; }
@@ -67,38 +59,167 @@ h1 {
 
 .container      {
     display: grid;
-    grid-template-columns: 1fr 1fr 200px;
-    grid-template-rows: 50vh 1fr 1fr 1fr 1fr 100px;
-    grid-gap: 1rem;
-    grid-template-areas:
-      "header header header"
-      "content1 content1 content2"
-      "content3 content3 content2"
-      "sidebar-right content4 content-2"
-      "sidebar-right content4 content-2";
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 1em;
    }
+
+
+.header {
+  grid-column: 1/2; /* start line then end line */
+  grid-row: 1/2; /* start line then end line */
+}
+
+.content1 {
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+.content2 {
+  grid-column: 1;
+  grid-row: 3/4;
+}
+.content3 {
+  grid-column: 3/4;
+  grid-row: 4/5;
+}
+.content4 {
+  grid-column: 1/-1;
+  grid-row: 2/4;
+}
+.sidebar-right{
+  grid-column: 3/-1;
+  grid-row: 3/4;
+}
   
    .container > div {
     border: 1px #363a18;
+    border-style: solid;
   }
 
   .containz{
     display: grid;
     grid-template-columns: repeat(4 1fr);
-    grid-template-rows: repeat(4 1fr);
-    grid-gap: 1rem;
+    grid-template-rows: repeat(3 1fr);
+    grid-gap: 1em;
     grid-template-areas:
       "head head head head"
       "contentone contentone contenttwo contenttwo"
       "contentthree contentthree contentfour contentfour"
-      "footer footer footer footer";
+      "foot foot foot foot";
    }
 
   .containz > div {
-    border-color: black;
+    border: 1px #363a18;
+    border-style: solid;
   }
 
 /***** PROXIMITY *****/
+
+.proximity {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* first tell it how many times to repeat something then tell the value to repeat (separated by comma); adding a value before the repeat (like 100px repeat(4, 1fr) makes the first column always remain at that value (can do this for multiple rows like '50px 100px repeat (2, 1fr)*/ /* you can do the same thing with grid-template-rows */ /*can use 'max content' and then the content will dictate the maximum width (this is a fixed size but adapts as the content changes, like if you change the heading or whatever the content is), same concept with 'min-content' --> smallest it can be based on available content */
+  grid-template-rows: 1fr 1fr 1fr; /* works same way a grid-template-columns, */
+  gap: 1em; /*gap is like margin as well - pushes between elements, using em will keep the gaps flexible*/
+}
+
+.apple {
+  grid-column: 1/2; /* start line then end line */
+  grid-row: 1/2; /* start line then end line */
+}
+
+.banana {
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+.orange {
+  grid-column: 2/3;
+  grid-row: 3/4;
+}
+.cucumber {
+  grid-column: 3/4;
+  grid-row: 1/2;
+}
+.pepper {
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+
+.kale {
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+.cheerio {
+  grid-column: 1;
+  grid-row: 3/4;
+}
+.cina {
+  grid-column: 3/4;
+  grid-row: 3/4;
+}
+.frost {
+  grid-column: 3/4;
+  grid-row: 2/3;
+}
+
+/********/
+
+.proximities {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  grid-template-rows: 1fr 1fr 1fr; 
+  gap: 1em; 
+}
+
+.apples {
+  grid-column: 1/2; 
+  grid-row: 1/2; 
+}
+
+.bananas {
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+.oranges {
+  grid-column: 1/2;
+  grid-row: 3/4;
+}
+.cucumbers {
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+.peppers {
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+
+.kales {
+  grid-column: 2/3;
+  grid-row: 3/4;
+}
+.cheerios {
+  grid-column: 3/4;
+  grid-row: 1/2;
+}
+.cinas {
+  grid-column: 3/4;
+  grid-row: 2/3;
+}
+.frosts {
+  grid-column: 3/4;
+  grid-row: 3/4;
+}
+
+.proximities > div{
+  border: 1px solid var(--color-avacado-black);
+}
+
+
+/* using just grid-template-columns makes implicit grid, where the computer makes the amount of rows; using grid-template-rows with g-t-c makes explicit rows, where you determine the amount of rows */ 
+
+.proximity > div {
+  border: 1px solid var(--color-avacado-black);
+}
+
 
 /* TYPOGRAPHY */
 
@@ -126,14 +247,14 @@ h1 { font-family: 'Griffy', cursive; }
 
 /* GRID LINES AND CELLS */
 
-.container {
+.contai--ner {
   display: grid;
   grid-template-columns: 200px repeat(4, 1fr) 200px; /* makes 6 columns*/
   grid-template-rows: 25vw repeat(9, 1fr) 10vw; /* makes 11 rows */
   grid-gap: 1rem;
 }
 
-.container > div {
+.conta--iner > div {
   border: 1px solid var(--color-avacado-black);
 }
 
@@ -180,7 +301,7 @@ h1 { font-family: 'Griffy', cursive; }
 
 /* then, can use these terms to make grid areas with grid-template-areas, like below */
  
-.contain{
+.co-ntain{
   display: grid;
   grid-template-columns: 200px 1fr 200px;
   grid-template-rows: 50vh 1fr 1fr 1fr 1fr 100px;
@@ -193,7 +314,7 @@ h1 { font-family: 'Griffy', cursive; }
     "foot foot foot";
  }
 
- .contain > div {
+ .con-tain > div {
   border: 1px solid var(--color-avacado-black);
 }
 
