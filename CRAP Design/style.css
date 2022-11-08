@@ -54,8 +54,8 @@ h1 {
 .font3 { font-family: 'Teko';} 
 .explainfont { font-family: 'Roboto Condensed' ;}
 
-/***** ALIGNMENT *****/
 
+/***** ALIGNMENT *****/
 
 /*containz*/
 .head            { grid-area: head; }
