@@ -1,0 +1,245 @@
+
+/* FONT IMPORTS */
+/* SERIF 
+Playfair
+DM Serif
+Cinzel
+*/
+
+/* SANS SERIF 
+Roboto
+Wuicksand
+Teko
+*/
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=DM+Serif+Display&family=Playfair+Display:wght@500&family=Quicksand:wght@500&family=Roboto+Condensed:wght@300&family=Teko:wght@300&display=swap');
+
+/* Setup */
+:root {
+  --color-orange-crush: #ddcea3;
+  --color-avacado-black: #363a18;
+}
+
+body {
+  background: var(--color-orange-crush);}
+
+p { 
+    font-family: 'Roboto Condensed'; 
+    color: #363a18; 
+    padding: .5vh; 
+    margin: .5vh; 
+}
+
+h1 {
+    font-family: 'Playfair';
+    color: #363a18; 
+    padding: .5vh; 
+    margin: .5vh; 
+}
+
+/***** CONTRAST *****/
+
+.contrast {font-family: 'Playfair';}
+.header2 { font-family: 'Cinzel';}
+.para { font-family: 'Quicksand';} 
+
+/*COLOR*/
+.color1{ color: rgb(46, 12, 184); }
+.color2{ color:rgb(12, 184, 26); }
+.blend{ color: #dec47e;}
+.stand { color:black;}
+
+/***** REPETITION *****/ 
+.font1 {font-family: 'Quicksand';}
+.font2 { font-family: 'Roboto Condensed';}
+.font3 { font-family: 'Teko';} 
+.explainfont { font-family: 'Roboto Condensed' ;}
+
+
+/***** ALIGNMENT *****/
+
+/*containz*/
+.head            { grid-area: head; }
+.contentone      { grid-area: contentone; }
+.contenttwo      { grid-area: contenttwo; }
+.contentthree    { grid-area: contentthree; }
+.foot            { grid-area: foot;}
+.contentfour     {grid-area: contentfour;}
+
+.container      {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 1em;
+   }
+
+
+.header {
+  grid-column: 1/2; /* start line then end line */
+  grid-row: 1/2; /* start line then end line */
+}
+
+.content1 {
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+.content2 {
+  grid-column: 1;
+  grid-row: 3/4;
+}
+.content3 {
+  grid-column: 3/4;
+  grid-row: 4/5;
+}
+.content4 {
+  grid-column: 2/3;
+  grid-row: 2/4;
+}
+.sidebar-right{
+  grid-column: 3/-1;
+  grid-row: 3/4;
+}
+  
+   .container > div {
+    border: 1px #363a18;
+    border-style: solid;
+  }
+
+  .containz{
+    display: grid;
+    grid-template-columns: repeat(4 1fr);
+    grid-template-rows: repeat(3 1fr);
+    grid-gap: 1em;
+    grid-template-areas:
+      "head head head head"
+      "contentone contentone contenttwo contenttwo"
+      "contentthree contentthree contentfour contentfour"
+      "foot foot foot foot";
+   }
+
+  .containz > div {
+    border: 1px #363a18;
+    border-style: solid;
+  }
+
+/***** PROXIMITY *****/
+
+.proximity {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  grid-template-rows: 1fr 1fr 1fr; 
+  gap: 1em; 
+}
+
+.apple {
+  grid-column: 1/2;
+  grid-row: 1/2; 
+}
+
+.banana {
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+.orange {
+  grid-column: 1/2;
+  grid-row: 3/4;
+}
+.cucumber {
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+.pepper {
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+
+.kale {
+  grid-column: 2/3;
+  grid-row: 3/4;
+}
+.cheerio {
+  grid-column: 3/4;
+  grid-row: 1/2;
+}
+.cina {
+  grid-column: 3/4;
+  grid-row: 3/4;
+}
+.frost {
+  grid-column: 3/4;
+  grid-row: 2/3;
+}
+
+/********/
+
+.proximities {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  grid-template-rows: 1fr 1fr 1fr; 
+  gap: 1em; 
+}
+
+.apples {
+  grid-column: 1/2; 
+  grid-row: 1/2; 
+}
+
+.bananas {
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+.oranges {
+  grid-column: 1/2;
+  grid-row: 3/4;
+}
+.cucumbers {
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+.peppers {
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+
+.kales {
+  grid-column: 2/3;
+  grid-row: 3/4;
+}
+.cheerios {
+  grid-column: 3/4;
+  grid-row: 1/2;
+}
+.cinas {
+  grid-column: 3/4;
+  grid-row: 2/3;
+}
+.frosts {
+  grid-column: 3/4;
+  grid-row: 3/4;
+}
+
+.proximities > div{
+  border: 1px solid var(--color-avacado-black);
+}
+
+.proximity > div {
+  border: 1px solid var(--color-avacado-black);
+}
+
+/* <hr> - horizontal rule effects */
+.scoring {
+  background-image: repeating-linear-gradient(-45deg, transparent, transparent 8px, currentcolor 8px, currentcolor 10px);
+  padding: 0px;
+  aspect-ratio: 20 / 1;
+  border: 0px;
+  display: block;
+  color: var(--color-avacado-black);
+}
+
+.thicker {
+  background-color: currentcolor;
+  padding: 0px;
+  height: 4px;
+  border: 0px;
+  display: block;
+  color: inherit;
+}
