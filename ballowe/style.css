@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Griffy&display=swap');
+
+/*
+  Review these terms in inspection tool:
+    * grid container and items
+    * grid lines and line numbers
+    * grid tracks
+    * grid cells vs. areas
+  
+  Practice these rules and values:
+    * Rules:
+      - grid-template-columns
+      - grid-template-rows
+      - gap and alignment rules
+        --> justify-self (main axis) and align-self (cross axis) 
+    * Values: fr, min-content, max-content, minmax(), repeat()
+
+  Review these quirks:
+    * Fixed sizing ruh-rohs!
+*/
+
+/* GENERAL */
+
+/* Setup */
+:root {
+  --color-laser-lemon: #f0f074;
+  --color-avacado-black: #363a18;
+}
+
+body {
+  background: var(--color-laser-lemon);
+  color: var(--color-avacado-black);
+}
+
+/* Images */
+
+img {
+  display: block;
+  width: 100%;
+}
+
+/* TYPOGRAPHY */
+
+/* Families */
+* { font-family: 'Crimson Text', serif; }
+h1 { font-family: 'Griffy', cursive; }
+
+/* Sizing */
+body  { font-size: clamp(18px, 5vw, 28px); }
+h1    { font-size: clamp(36px, 10vw, 62px) }
+h2    { font-size: clamp(30px, 10vw, 48px); }
+
+/* Weights */
+p { font-weight: 300; }
+
+/* ALIGNMENT RULES */
+.align-self-center {align-self: center}
+
+
+/* HEADER */
+
+.top-banner {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* do this & grid-template-rows on parent container, unit = fr (stands for fractional unit), way of computing percentages (kind of)/ratios, 3fr = 3 fractionl unit columns,if 2 values (like 1fr 1fr) then it makes that many columns of the size you put (so 1fr 1fr = 2 columns of same size and 1fr 2fr = 2 columns where second one is bigger)*/
+}
+.top-banner img {
+  width: 100%; /*allows it to be flexible when it is 100% */
+}
+
+/* TEN AREA */ 
+.ten-area {
+  display: grid;
+  grid-template-columns: 100px repeat(4, 1fr); /* first tell it how many times to repeat something then tell the value to repeat (separated by comma); adding a value before the repeat (like 100px repeat(4, 1fr) makes the first column always remain at that value (can do this for multiple rows like '50px 100px repeat (2, 1fr)*/ /* you can do the same thing with grid-template-rows */ /*can use 'max content' and then the content will dictate the maximum width (this is a fixed size but adapts as the content changes, like if you change the heading or whatever the content is), same concept with 'min-content' --> smallest it can be based on available content */
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr; /* works same way a grid-template-columns, */
+  gap: 1em; /*gap is like margin as well - pushes between elements, using em will keep the gaps flexible*/
+}
+
+/* using just grid-template-columns makes implicit grid, where the computer makes the amount of rows; using grid-template-rows with g-t-c makes explicit rows, where you determine the amount of rows */ 
+
+.ten-area > div {
+  border: 1px solid var(--color-avacado-black);
+}
+
+/* GRID LINES AND CELLS */
+
+.container {
+  display: grid;
+  grid-template-columns: 200px repeat(4, 1fr) 200px; /* makes 6 columns*/
+  grid-template-rows: 25vw repeat(9, 1fr) 10vw; /* makes 11 rows */
+  grid-gap: 1rem;
+}
+
+.container > div {
+  border: 1px solid var(--color-avacado-black);
+}
+
+/* SPECIFIC */
+
+.header {
+  grid-column: 1/-1; /* start line then end line */
+  grid-row: 1/2; /* start line then end line */
+}
+.nav-left {
+  grid-column: 1/2;
+  grid-row: 2/-2;
+}
+.content1 {
+  grid-column: 2/-2;
+  grid-row: 2/7;
+}
+.content2 {
+  grid-column: 2/-2;
+  grid-row: 7/9;
+}
+.content3 {
+  grid-column: 2/-2;
+  grid-row: 9/11;
+}
+.sidebar-right {
+  grid-column: -2/-1;
+  grid-row: 2/11;
+}
+.footer{
+  grid-column: 1/-1;
+  grid-row: 11/-1;
+}
+
+/* DEFINE GRID AREA KEYWORDS (would normally be at top)*/
+
+.head         { grid-area: head; }
+.nav_l       { grid-area: nav-left; }
+.sidebar-r  { grid-area: sidebar-r; }
+.content-one      { grid-area: contentone; }
+.content-two      { grid-area: contenttwo; }
+.content-three      { grid-area: contentthree; }
+.foot         { grid-area: foot; }
+
+/* then, can use these terms to make grid areas with grid-template-areas, like below */
+ 
+.contain{
+  display: grid;
+  grid-template-columns: 200px 1fr 200px;
+  grid-template-rows: 50vh 1fr 1fr 1fr 1fr 100px;
+  grid-gap: 1rem;
+  grid-template-areas:
+    "head head head"
+    "nav-l contentone sidebar-r"
+    "nav-l contenttwo sidebar-r"
+    "nav-l contentthree sidebar-r"
+    "foot foot foot";
+ }
+
+ .contain > div {
+  border: 1px solid var(--color-avacado-black);
+}
+
+/* EFFECTS */
+
+/* <hr> - horizontal rule effects */
+.scoring {
+  background-image: repeating-linear-gradient(-45deg, transparent, transparent 8px, currentcolor 8px, currentcolor 10px);
+  padding: 0px;
+  aspect-ratio: 20 / 1;
+  border: 0px;
+  display: block;
+  color: var(--color-avacado-black);
+}
+
+.thicker {
+  background-color: currentcolor;
+  padding: 0px;
+  height: 4px;
+  border: 0px;
+  display: block;
+  color: inherit;
+}
