@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Griffy&display=swap');
+
+/*
+  Review these terms in inspection tool:
+    * grid container and items
+    * grid lines and line numbers
+    * grid tracks
+    * grid cells vs. areas
+  
+  Practice these rules and values:
+    * Rules:
+      - grid-template-columns
+      - grid-template-rows
+      - gap and alignment rules
+    * Values: fr, min-content, max-content, minmax(), repeat()
+
+  Review these quirks:
+    * Fixed sizing ruh-rohs!
+*/
+
+/* GENERAL */
+
+/* Setup */
+:root {
+  --color-laser-lemon: #f0f074;
+  --color-avacado-black: #363a18;
+}
+
+body {
+  background: var(--color-laser-lemon);
+  color: var(--color-avacado-black);
+}
+
+/* Images */
+
+img {
+  display: block;
+  width: 100%;
+}
+
+/* TYPOGRAPHY */
+
+/* Families */
+* { font-family: 'Crimson Text', serif; }
+h1 { font-family: 'Griffy', cursive; }
+
+/* Sizing */
+body  { font-size: clamp(18px, 5vw, 28px); }
+h1    { font-size: clamp(36px, 10vw, 62px) }
+h2    { font-size: clamp(30px, 10vw, 48px); }
+
+/* Weights */
+p { font-weight: 300; }
+
+
+/* HEADER */
+.top-banner img {
+  width: 20em;
+}
+
+
+/* EFFECTS */
+
+/* <hr> - horizontal rule effects */
+.scoring {
+  background-image: repeating-linear-gradient(-45deg, transparent, transparent 8px, currentcolor 8px, currentcolor 10px);
+  padding: 0px;
+  aspect-ratio: 20 / 1;
+  border: 0px;
+  display: block;
+  color: var(--color-avacado-black);
+}
+
+.thicker {
+  background-color: currentcolor;
+  padding: 0px;
+  height: 4px;
+  border: 0px;
+  display: block;
+  color: inherit;
+}
